@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "dev",
+      "public": "dist/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "ssr"
+        }
+      ]
+    }
+  ]
+}

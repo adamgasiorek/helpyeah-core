@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "dev": "helpyeah-dev",
+    "production": "helpyeah-prod-b2fa6"
+  },
+  "targets": {
+    "helpyeah-dev": {
+      "hosting": {
+        "dev": [
+          "helpyeah-dev"
+        ]
+      }
+    }
+  }
+}
