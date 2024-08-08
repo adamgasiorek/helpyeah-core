@@ -1,0 +1,27 @@
+<div class="login" *ngIf="(isAppLoading$ | async);else loading">
+    <h2 class="login__wrapper--header">Zaloguj do HelpYeah</h2>
+    <form class="login__wrapper--form" [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+        <label>
+            <input class="input" placeholder="Podaj adres e-mail" type="text" formControlName="email">
+        </label>
+
+        <label>
+            <input class="input" placeholder="Wprowadź hasło" type="password" formControlName="password">
+        </label>
+
+        <button class="submit" type="submit" [disabled]="!loginForm.valid">Zaloguj się</button>
+    </form>
+    <div class="login__wrapper--break">lub</div>
+    <button class="login__wrapper--button-social" (click)="googleLogin()"> <fa-icon [icon]="['fab', 'google']"></fa-icon> SIGN IN WITH GOOGLE </button>
+    <button class="login__wrapper--button-social" (click)="facebookLogin()"> <fa-icon [icon]="['fab', 'facebook']"></fa-icon> SIGN IN WITH FACEBOOK </button>
+    <div class="login__wrapper--break-line"></div>
+    <div class="login__wrapper--actions">
+        <ul>
+            <li><a [routerLink]="['..','forgot']">Zapomniałeś hasła?</a></li>
+            <li><a [routerLink]="['..','register']">Zarejestruj się</a> </li>
+        </ul>
+    </div>
+</div>
+<ng-template #loading>
+    loading
+</ng-template>

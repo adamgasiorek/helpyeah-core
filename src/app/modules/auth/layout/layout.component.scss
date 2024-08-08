@@ -1,0 +1,35 @@
+.auth {
+  min-height: 100vh;
+  background: #e1e9ff;
+  background: linear-gradient(0deg, #e1e9ff 0%, #eceffa 44%, white 100%);
+
+  &--logo {
+    background-image: url('../../../../assets/images/logo.png');
+    width: 120px;
+    height: 35px;
+    background-size: contain;
+    margin: 76px 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &__wrapper {
+    padding: 32px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.05), 0px 1px 4px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    color: #292D33;
+    background: #fff;
+    width: 100%;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

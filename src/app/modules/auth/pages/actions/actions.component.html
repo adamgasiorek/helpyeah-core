@@ -1,0 +1,22 @@
+<ng-container [ngSwitch]="mode">
+
+    <ng-container *ngSwitchCase="'resetPassword'" >
+        <form [formGroup]="resetForm" (ngSubmit)="onSubmitReset()">
+            <label>
+                Password
+                <input type="password" formControlName="password">
+            </label>
+
+            <button type="submit" [disabled]="!resetForm.valid">RESET</button>
+        </form>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'recoverEmail'" >
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'verifyEmail'" >
+        Twoj email zostal zatwierdzony !
+    </ng-container>
+
+</ng-container>

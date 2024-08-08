@@ -1,0 +1,9 @@
+{
+  "appId": "com.helpyeah.app",
+  "appName": "helpyeah",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/browser",
+  "cordova": {},
+  "linuxAndroidStudioPath": "/snap/bin/android-studio"
+}

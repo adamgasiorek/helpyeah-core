@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="navbar">
+        <div class="navbar--wrapper">
+            <div class="navbar--left">
+                <a class="navbar__logo" [routerLink]="['home']"></a>
+            </div>
+
+            <div class="navbar--right">
+                <button class="navbar__button borderless" [routerLink]="['/', 'auth','login']">Login</button>
+                <button class="navbar__button" [routerLink]="['/', 'auth','register']">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="introduction">
+        <div class="introduction__container">
+            <div class="introduction__wrapper">
+                <h1 class="introduction__header">header1</h1>
+                <h1 class="introduction__header bold"><span class="underline">help</span> someone?</h1>
+
+                <div class="introduction__description">
+                    Take this <span class="bold">2 minute</span> test and find out
+                    <button (click)="changeLang('en')">en</button>
+                    <button (click)="changeLang('pl')">pl</button>
+                </div>
+
+                <button class="introduction__action">Take test</button>
+            </div>
+            <div class="introduction__image"></div>
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="details__header">How <span class="bold">it</span> works ?</div>
+        <div class="details__step">
+            <div class="details__step--image image1"></div>
+            <div class="details__step--wrapper">
+                <div class="header">Podziękuj komuś za dobry uczynek</div>
+                <div class="description">Podaruj mu kod Theres isa no stlye ober sudbsd. Why should i adam why blabla.</div>
+            </div>
+        </div>
+        <div class="details__step left">
+            <div class="details__step--image image2"></div>
+            <div class="details__step--wrapper">
+                <div class="header">Wpłać na cele charytatywne</div>
+                <div class="description">Wpłać na cele charytatywne Wpłać na cele charytatywne.</div>
+            </div>
+        </div>
+        <div class="details__step">
+            <div class="details__step--image image3"></div>
+            <div class="details__step--wrapper">
+                <div class="header">Obserwuj twój łancuszek dobroci</div>
+                <div class="description">Obserwuj twój łancuszek dobroci sasasa ubewe no stlye ober sudbsd. Why should i adam why blabla.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="join">
+        <div class="join__wrapper">
+            <div class="join__description">
+                <div class="title">Ready to get started?</div>
+                <div class="description">Easy to setup, no credit card required, start your trial today!</div>
+            </div>
+            <div class="join__button">
+                Register now
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer__wrapper">
+
+            <div class="footer__column">
+                <div class="footer__logo"></div>
+                <div class="footer__link">Copyright 2020 <br> All rights reserved</div>
+            </div>
+
+            <div class="footer__column">
+                <div class="footer__header">Menu</div>
+                <div class="footer__link">Home</div>
+                <div class="footer__link">About</div>
+                <div class="footer__link">Service</div>
+                <div class="footer__link">Contact</div>
+            </div>
+
+            <div class="footer__column">
+                <div class="footer__header">Quick links</div>
+                <div class="footer__link">Home</div>
+                <div class="footer__link">About</div>
+                <div class="footer__link">Service</div>
+                <div class="footer__link">Contact</div>
+            </div>
+
+            <div class="footer__column">
+                <div class="footer__header">Categories</div>
+                <div class="footer__link">Home</div>
+                <div class="footer__link">About</div>
+                <div class="footer__link">Service</div>
+                <div class="footer__link">Contact</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<button class="menu" (click)="modalVisible = !modalVisible"
+        (clickOutside)="onClickedOutside($event)" >
+    <div class="menu__label">
+        <ng-content select="[label]"></ng-content>
+    </div>
+    <div class="menu__modal modal" *ngIf="modalVisible">
+        <div class="modal__item" ><ng-content select="[item1]"></ng-content></div>
+        <div class="modal__item" ><ng-content select="[item2]"></ng-content></div>
+    </div>
+</button>

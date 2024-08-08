@@ -1,0 +1,50 @@
+name: DEPLOY
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  dev-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+      - name: Install in main directory
+        run: npm install
+      - name: Run unit tests
+        run: npm run test
+      - name: Run e2e tests
+        uses: cypress-io/github-action@master
+        with:
+          start: npm start
+          wait-on: 'http://localhost:4200'
+          wait-on-timeout: 120
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build client and server
+        run: npm run build:ssr
+      - name: Prepare to deploy (Install functions, Copy /dist folder and typescript compile functions)
+        working-directory: ./functions
+        run: npm run build
+      - name: Remove index.html from main folder
+        run: rm -rf ./dist/browser/index.html
+      - name: Deploy hosting
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_ID: 'helpyeah-dev'
+      - name: Deploy functions
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions:ssr
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_ID: 'helpyeah-dev'

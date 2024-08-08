@@ -1,0 +1,90 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrapper {
+
+    &--header {
+      font: 500 16px/40px Poppins;
+      margin-bottom: 30px;
+    }
+
+    &--form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .input {
+        height: 45px;
+        margin-bottom: 30px;
+        width: 100%;
+        padding-left: 8px;
+        box-sizing: border-box;
+      }
+
+      .submit {
+        font: 500 13px/30px Poppins;
+        background-color: #6BBD50;
+        height: 35px;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+      }
+
+    }
+
+    &--break {
+      text-transform: uppercase;
+      font: 400 12px/40px Poppins;
+    }
+
+    &--button-social {
+      box-shadow: rgba(0,0,0,0.2) 1px 1px 5px 0;
+      font: 500 13px/30px Poppins;
+      background-color: #ffffff;
+      height: 35px;
+      color: #505F81;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 15px;
+
+      fa-icon {
+        margin-right: 7px;
+      }
+    }
+
+    &--break-line {
+      display: inline-block;
+      width: 90%;
+      height: 1px;
+      margin: 10px 0 20px 0;
+      background-color: #c7c7c7;
+    }
+
+    &--actions {
+
+      li {
+        display: inline;
+
+        &:after {
+          content: "\2022";
+          margin: 0 8px 0 8px;
+        }
+
+        &:last-child:after {
+          content: none;
+        }
+
+        a {
+          font: 500 14px/11px Poppins;
+          color: #3560a2;
+        }
+      }
+
+    }
+
+  }
+
+}

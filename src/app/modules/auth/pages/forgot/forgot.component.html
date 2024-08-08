@@ -1,0 +1,17 @@
+<div class="forgot">
+    <h2 class="forgot__wrapper--header">Przypomnij hasło</h2>
+    {{error$ | async}}
+    <form class="forgot__wrapper--form" [formGroup]="resetForm" (ngSubmit)="onSubmitReset()">
+        <label>
+            <input class="input" placeholder="Podaj adres e-mail" type="text" formControlName="email">
+        </label>
+
+        <button class="submit" type="submit" [disabled]="!resetForm.valid">Przypomnij</button>
+    </form>
+    <div class="forgot__wrapper--actions">
+        <ul>
+            <li><a [routerLink]="['..','register']">Zaloguj się</a></li>
+            <li><a [routerLink]="['..','register']">Zarejestruj się</a> </li>
+        </ul>
+    </div>
+</div>

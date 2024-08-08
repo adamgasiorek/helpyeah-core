@@ -1,0 +1,51 @@
+<!--<h3>REGISTER</h3>-->
+<!--<form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">-->
+<!--    <label>-->
+<!--        Email:-->
+<!--        <input type="text" formControlName="email">-->
+<!--    </label>-->
+
+<!--    <label>-->
+<!--        Password-->
+<!--        <input type="password" formControlName="password">-->
+<!--    </label>-->
+
+<!--    <label>-->
+<!--        Repeat password-->
+<!--        <input type="password" formControlName="confirmPassword">-->
+<!--    </label>-->
+
+<!--    <button type="submit" [disabled]="!registerForm.valid">REGISTER</button>-->
+<!--</form>-->
+
+<!--<button (click)="googleLogin()"> SIGN IN WITH GOOGLE </button>-->
+<!--<button (click)="facebookLogin()"> SIGN IN WITH FACEBOOK </button>-->
+
+<div class="register">
+    <h2 class="register__wrapper--header">Zarejestruj do HelpYeah</h2>
+    <form class="register__wrapper--form" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
+        <label>
+            <input class="input" placeholder="Podaj adres e-mail" type="text" formControlName="email">
+        </label>
+
+        <label>
+            <input class="input" placeholder="Wprowadź hasło" type="password" formControlName="password">
+        </label>
+
+        <label>
+            <input class="input" placeholder="Potwierdź hasło" type="password" formControlName="confirmPassword">
+        </label>
+
+        <button class="submit" type="submit" [disabled]="!registerForm.valid">Zarejestruj się</button>
+    </form>
+    <div class="register__wrapper--break">lub</div>
+    <button class="register__wrapper--button-social" (click)="googleLogin()"> <fa-icon [icon]="['fab', 'google']"></fa-icon> SIGN UP WITH GOOGLE </button>
+    <button class="register__wrapper--button-social" (click)="facebookLogin()"> <fa-icon [icon]="['fab', 'facebook']"></fa-icon> SIGN UP WITH FACEBOOK </button>
+    <div class="register__wrapper--break-line"></div>
+    <div class="register__wrapper--actions">
+        <ul>
+            <li><a [routerLink]="['..','forgot']">Zapomniałeś hasła?</a></li>
+            <li><a [routerLink]="['..','login']">Zaloguj się</a> </li>
+        </ul>
+    </div>
+</div>

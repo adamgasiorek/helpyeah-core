@@ -1,0 +1,51 @@
+<h1>My first search app</h1>
+<!--<ais-instantsearch-->
+<!--        [config]="config"-->
+<!--&gt;-->
+<!--    <ais-refinement-list attribute="brand"></ais-refinement-list>-->
+<!--    <ais-search-extension-box></ais-search-extension-box>-->
+<!--    <ais-hits>-->
+<!--        <ng-template let-hits="hits" let-results="results">-->
+<!--            <div *ngIf="hits.length === 0">-->
+<!--            No results have been found for {{ results.query }}.-->
+<!--            </div>-->
+<!--            <div *ngFor="let hit of hits">Hit: {{ hit.objectID }} i {{ hit.name }}</div>-->
+<!--        </ng-template>-->
+<!--    </ais-hits>-->
+<!--    <ais-pagination></ais-pagination>-->
+<!--</ais-instantsearch>-->
+<ais-instantsearch [config]="config">
+    <div class="left-panel">
+        <h2>Categories</h2>
+        <ais-menu attribute="categories"></ais-menu>
+        <h2>Brands</h2>
+        <ais-refinement-list attribute="brand"></ais-refinement-list>
+        <ais-configure [searchParameters]="{ hitsPerPage: 8 }"></ais-configure>
+    </div>
+    <div class="right-panel">
+        <ais-configure
+                [searchParameters]="{ hitsPerPage: 5}"
+        ></ais-configure>
+        <ais-search-box></ais-search-box>
+        <ais-current-refinements></ais-current-refinements>
+        <br/>
+        <ais-loading-indicator></ais-loading-indicator>
+        <ais-hits>
+            <ng-template let-hits="hits">
+                <ol class="ais-Hits-list">
+                    <li *ngFor="let hit of hits" class="ais-Hits-item">
+                        <img src="{{hit.image}}" alt="{{hit.name}}" align="left"/>
+                        <div class="hit-name">
+                            <ais-highlight attribute="name" [hit]="hit"></ais-highlight>
+                        </div>
+                        <div class="hit-description">
+                            <ais-highlight attribute="description" [hit]="hit"></ais-highlight>
+                        </div>
+                        <div class="hit-price">${{hit.price}}</div>
+                    </li>
+                </ol>
+            </ng-template>
+        </ais-hits>
+        <ais-pagination></ais-pagination>
+    </div>
+</ais-instantsearch>

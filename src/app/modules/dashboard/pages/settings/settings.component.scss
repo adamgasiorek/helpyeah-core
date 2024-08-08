@@ -1,0 +1,21 @@
+.settings {
+  display: flex;
+
+
+  &__left {
+    flex: 1;
+    max-width: 250px;
+    border-right: 1px solid grey;
+
+    li {
+      cursor: pointer;
+      outline: none;
+    }
+
+  }
+
+  &__right {
+    flex: 1;
+  }
+
+}

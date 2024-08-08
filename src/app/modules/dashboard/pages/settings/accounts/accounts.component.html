@@ -1,0 +1,60 @@
+<button (click)="linkWithFacebook()" [disabled]="facebookProvider$ | async"> LINK WITH FACEBOOK </button>
+<button (click)="linkWithGoogle()" [disabled]="googleProvider$ | async"> LINK WITH GOOGLE </button>
+
+<ng-container *ngIf="passwordProvider$ | async; else emailNotLinked">
+    email linked
+</ng-container>
+<ng-template #emailNotLinked>
+    <h1>Link</h1>
+
+    <form [formGroup]="linkForm" (ngSubmit)="onSubmitLink()">
+        <label>
+            Email:
+            <input type="text" formControlName="email">
+        </label>
+
+        <label>
+            Password
+            <input type="password" formControlName="password">
+        </label>
+
+        <label>
+            Repeat password
+            <input type="password" formControlName="confirmPassword">
+        </label>
+
+        <button type="submit" [disabled]="!linkForm.valid">LINK</button>
+    </form>
+</ng-template>
+
+<div style="border: 1px solid black;padding: 40px;">
+    <div style="border: 1px solid black;padding: 40px;" *ngIf="googleProvider$ | async">
+        <h3>Google</h3>
+        {{googleProvider$ | async | json}}
+        <br><br><button (click)="unlink('google.com')" *ngIf="!(isLastProvider$ | async)"> UNLINK WITH GOOGLE </button>
+    </div>
+    <div style="border: 1px solid black;padding: 40px;" *ngIf="facebookProvider$ | async">
+        <h3>Facebook</h3>
+        {{facebookProvider$ | async | json}}
+        <br><br><button (click)="unlink('facebook.com')" *ngIf="!(isLastProvider$ | async)"> UNLINK WITH FACEBOOK </button>
+    </div>
+    <div style="border: 1px solid black;padding: 40px;" *ngIf="passwordProvider$ | async">
+        <h3>Email</h3>
+        {{passwordProvider$ | async | json}}
+        <br><br><br>USTAW NOWE HASLO
+        <form [formGroup]="passwordChangeForm" (ngSubmit)="onSubmitPasswordChange()">
+            <label>
+                Aktualne haslo:
+                <input type="password" formControlName="oldPassword">
+            </label>
+
+            <label>
+                Nowe haslo:
+                <input type="password" formControlName="newPassword">
+            </label>
+
+            <button type="submit" [disabled]="!passwordChangeForm.valid">RESET</button>
+        </form>
+        <br><br><button (click)="unlink('password')" *ngIf="!(isLastProvider$ | async)"> UNLINK WITH PASSWORD </button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<!--<p>layout works!</p>-->
+<div class="navbar">
+    <div class="navbar--wrapper">
+        <div class="navbar--left">
+            <a [routerLink]="['home']"><div class="navbar__logo" ></div></a>
+        </div>
+
+        <div class="navbar--right">
+            <app-menu>
+                <div label class="iconAvatar"> <fa-icon [icon]="['far', 'bell']" size="3x" [styles]="{'color': '#172B4D'}"></fa-icon> </div>
+                <div class="menuItem" item1 >Powiadominie 1</div>
+                <div class="menuItem" item2 >Powiadominie 2</div>
+            </app-menu>
+            <app-menu>
+                <div label class="avatar"> <img [src]="photoURL$ | async" /> </div>
+                <div item1 class="menuItem" [routerLink]="['/','settings']"><fa-icon [icon]="['fas', 'cogs']"></fa-icon> Settings</div>
+                <div item2 class="menuItem" (click)="logout()"><fa-icon [icon]="['fas', 'sign-out-alt']"></fa-icon> Log out</div>
+            </app-menu>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
